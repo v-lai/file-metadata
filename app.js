@@ -14,7 +14,8 @@ app.post("/get-file-size", upload, function(req, res){
     if (err) {
       return res.send("An error occurred when uploading");
     }
-    res.send(JSON.stringify({ size: req.file.size }));
+    res.send(JSON.stringify({ name: req.file.originalname, 
+      type: req.file.mimetype, size: req.file.size }));
   });
 });
 
